@@ -7,7 +7,10 @@ Install using `packer.nvim` using this entry
 ```lua
 use {
 	'kvngvikram/cmp-mkdnflow',
-	requires = { {'jakewvincent/mkdnflow.nvim'} }
+	requires = {
+		{'jakewvincent/mkdnflow.nvim'},
+		{'nvim-lua/plenary.nvim'}
+		}
 }
 ```
 
