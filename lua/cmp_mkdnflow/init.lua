@@ -7,6 +7,17 @@ local cmp = require('cmp')
 -- local plenary_path = require('plenary').path
 local extension = '.md'  -- keep the .
 
+local transform_explicit_function_in_config = require('mkdnflow').config.links.transform_explicit
+
+
+local function transform_explicit(text)
+	if transform_explicit_function_in_config then  -- condition will be false if it doesn't exist
+		return transform_explicit_function_in_config(text)
+	else
+		return text
+	end
+end
+
 
 local source = {}
 
@@ -24,13 +35,14 @@ function source:complete(params, callback)
 		if vim.endswith(path, extension) then
 			local item = {}
 			item.path = path  -- absolute path of the file
-			-- we are getting absolute path from root from plenary_scandir
-			-- So remove the mkdnflow_root_dir from it
-			item.path_from_root = path:gsub(mkdnflow_root_dir..'/', '')
 			-- need only the filename without extension
 			item.label = path:match('([a-zA-Z0-9 -]+)'..extension..'$')
+			-- -- we are getting absolute path from root from plenary_scandir
+			-- -- So remove the mkdnflow_root_dir from it
+			-- item.path_from_root = path:gsub(mkdnflow_root_dir..'/', '')
+			local explicit_link = transform_explicit(item.label) .. extension
 			-- text should be inserted in fmarkdown format
-			item.insertText = '['..item.label..']('..item.path_from_root..')'
+			item.insertText = '['..item.label..']('..explicit_link..')'
 			-- for butification
 			item.kind = cmp.lsp.CompletionItemKind.File
 
