@@ -36,10 +36,8 @@ function source:complete(params, callback)
 			local item = {}
 			item.path = path  -- absolute path of the file
 			-- need only the filename without extension
-			item.label = path:match('([a-zA-Z0-9 -]+)'..extension..'$')
-			-- -- we are getting absolute path from root from plenary_scandir
-			-- -- So remove the mkdnflow_root_dir from it
-			-- item.path_from_root = path:gsub(mkdnflow_root_dir..'/', '')
+			-- anything except / and \ (\\) followed by extension so that folders will be excluded
+			item.label = path:match('([^/^\\]+)'..extension..'$')
 			local explicit_link = transform_explicit(item.label) .. extension
 			-- text should be inserted in fmarkdown format
 			item.insertText = '['..item.label..']('..explicit_link..')'

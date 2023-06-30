@@ -31,10 +31,9 @@ cmp.setup({
 Also, don't forget to edit your `formatting` options in `cmp.setup`.
 
 
-# Issues
+# Possible Issues
 
 - how does it work with `transform_implicit` options of links. 
-- File names cannot contain symbols and unicode characters.. Did not tune the regex well enough for that.
 
 # Notes
 
