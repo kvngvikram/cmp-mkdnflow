@@ -1,5 +1,8 @@
 # cmp-mkdnflow
 
+Pull request in [Mkdnflow](https://github.com/jakewvincent/mkdnflow.nvim/pull/165) is accepthed. So there is **no need to use this plugin**.
+
+# This plugin is obsolete
 
 A *nvim-cmp* source for [jakewvincent/mkdnflow.nvim](https://github.com/jakewvincent/mkdnflow.nvim). Autocompletion in insert mode when the word you are typing matches any of the *.md* files in the notebook.
 
