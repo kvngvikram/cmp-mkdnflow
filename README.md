@@ -1,6 +1,6 @@
 # cmp-mkdnflow
 
-Pull request in [Mkdnflow](https://github.com/jakewvincent/mkdnflow.nvim/pull/165) is accepthed. So there is **no need to use this plugin**.
+[Pull request](https://github.com/jakewvincent/mkdnflow.nvim/pull/165) in Mkdnflow is accepthed. So there is **no need to use this plugin**.
 
 # This plugin is obsolete
 
